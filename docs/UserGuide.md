@@ -117,9 +117,9 @@ Back to [Table of Contents](#table-of-contents)
    _Ensure you have the necessary permissions to execute commands. For Windows Users, running the command prompt as an administrator may be
    required. If you encounter permission issues on Mac/Linux, you might need to use `chmod +x nab.jar` to make the file 
    executable._
+   </div>
    <br>
    Should you need help navigating the interface, refer to the [Interface](#the-interface) section.
-   </div>
 
 7. Type the command in the command box and press `Enter` to execute it. e.g. typing **`help`** and pressing `Enter` will 
 open the help window.<br>
@@ -139,6 +139,7 @@ open the help window.<br>
 Back to [Table of Contents](#table-of-contents)
 
 --------------------------------------------------------------------------------------------------------------------
+
 ## The Interface
 ![Navigation.png](images/Navigation.png)
 
@@ -360,8 +361,7 @@ Example command:
 `edit 1 ic\T0123456P t\ r\` edits the `IC_NUMBER`, `TAG` and `REMARK` of the first patient to be `T0123456P` for 
 `IC_NUMBER` and empty for both `TAG` and `REMARK`.
 
-Assuming John Doe is at index 1, the following shows the change in contact details:
-
+Assuming John Doe is at index 1 and previously had IC Number `T1234567P`, the tags `[FallRisk]` and `[HearingImpaired]`, and remark `Requires assistance feeding.`, the following shows the change in contact details:
 
 **Before**:
 ```
