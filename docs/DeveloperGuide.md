@@ -389,9 +389,6 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 ### Find a patient by name or NRIC
 
-#### Introduction
-This section describes the implementation of the find by name or NRIC mechanism in NAB. 
-
 #### Implementation
 
 The find feature is facilitated by `FindCommand`, `FindCommandParser`, `NameContainsKeywordsPredicate` and
@@ -483,6 +480,7 @@ specified otherwise)
 
 1.  User requests to list patients.
 2.  Nursing Address Book shows a list of patients.
+3.  Nursing Address Book displays success message
 
     Use case ends.
 
@@ -491,7 +489,7 @@ specified otherwise)
 * 1a. Nursing Address Book detects that the command is invalid. 
   * 1a1. Nursing Address Book shows an error message.
 
-  Use case resumes at step 1.
+    Use case resumes at step 1.
 
 **Use case: `UC02 - Add a patient`**
 
@@ -510,11 +508,11 @@ specified otherwise)
     
     Use case resumes at step 1.
 
-**Use case: `US03 - Delete a patient`**
+**Use case: `UC03 - Delete a patient`**
 
 **MSS**
 
-1.  User requests to view patient records(UC01).
+1.  User requests to _view patient records(UC01)_.
 2.  User requests to delete a patient in the list.
 3.  Nursing Address Book deletes the person.
 4.  Nursing Address Book shows success message to the user.
@@ -528,7 +526,7 @@ specified otherwise)
 
     Use case resumes at step 2.
 
-**Use case: `US04 - Edit a patient records`**
+**Use case: `UC04 - Edit a patient record`**
 
 **MSS**
 
@@ -546,7 +544,7 @@ specified otherwise)
 
       Use case resumes at step 2.
 
-**Use case: `US05 - Find patient`**
+**Use case: `UC05 - Find patient`**
 
 **MSS**
 
@@ -562,7 +560,7 @@ specified otherwise)
 
       Use case resumes at step 1.
 
-**Use case: `US06 - View patient with specific tags`**
+**Use case: `UC06 - View patient with specific tags`**
 
 **MSS**
 
@@ -578,7 +576,7 @@ specified otherwise)
 
       Use case resumes at step 1.
 
-**Use case: `US07 - View patients in specific ward`**
+**Use case: `UC07 - View patients in specific ward`**
 
 **MSS**
 
@@ -594,7 +592,7 @@ specified otherwise)
 
       Use case resumes at step 1.
 
-**Use case: `US08 - Get help with command usage`**
+**Use case: `UC08 - Get help with command usage`**
 
 **MSS**
 
