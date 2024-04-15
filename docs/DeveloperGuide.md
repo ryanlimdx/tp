@@ -940,11 +940,7 @@ For more accurate error checking, we plan to perform more concrete validation of
 We plan to allow nurses to view the corresponding patient's details while editing. This can be done by having the nurse
     first input only `edit INDEX` (as per the original command). The app will then show the patient's details. 
     Subsequently, the nurse will be able to edit specific field(s) of the patient's details with a follow-up command, 
-    while referencing the patient data. 
-
-Alternatively, we plan to allow nurses to edit the fields directly, after specifying the patient to be edited.
-
-Either approach will reduce accidental deletion of critical details.
+    while referencing the patient data. This will reduce accidental deletion of critical details.
 
 
 --------------------------------------------------------------------------------------------------------------------
