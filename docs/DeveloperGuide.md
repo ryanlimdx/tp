@@ -189,7 +189,7 @@ Given below is an example usage scenario and how the add patient feature behaves
 <div markdown="span" class="alert alert-info">:information_source: **Note:** The format of the add command is as follows:  
   
 - **n\\**: Indicates the name of the patient  
-- **ic\\**: Indicates the NRIC of the patient  
+- **ic\\**: Indicates the NRIC/FIN of the patient  
 - **ad\\**: Indicates the admission date of the patient into the hospital  
 - **dob\\**: Indicates the date of birth of the patient  
 - **w\\**: Indicates the ward the patient is currently in  
@@ -447,7 +447,7 @@ The following activity diagram summarizes what happens when a user executes a ne
     * Pros: Easy to be more specific.
     * Cons: Not relevant for the nurses use case. Allowing more wards also make it harder to filter fast.
 
-### Find a patient by name or NRIC
+### Find a patient by name or NRIC/FIN
 
 #### Implementation
 
@@ -534,7 +534,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* *`    | user    | edit patient records                         | ensure that all patient details are current and accurate     |
 | `* *`    | user    | list patients based on their tags            | view patients based on category                              |
 | `* *`    | user    | list all patients tied to a specific ward    | know which patients belong to which ward                     |
-| `* *`    | user    | find patients via their name or NRIC         | quickly find information of specific patient                 |
+| `* *`    | user    | find patients via their name or NRIC/FIN     | quickly find information of specific patient                 |
 | `* *`    | user    | access the user guide through the app easily | learn how to use the NAB                    |
 | `*`      | user    | view patient list sorted by name             | look through the list of patients in a more organized manner |
 
@@ -630,11 +630,11 @@ specified otherwise)
 
     Use case ends.
 
-**Use case: `UC06 - Find patient by NRIC`**
+**Use case: `UC06 - Find patient by NRIC/FIN`**
 
 **MSS**
 
-1. User requests to find a patient in the list with specific NRIC.
+1. User requests to find a patient in the list with specific NRIC/FIN.
 2. NAB shows the patient.
 
    Use case ends.
@@ -643,7 +643,7 @@ specified otherwise)
 
 * 1a. NAB detects that the given parameter is invalid.
     * 1a1. NAB shows an error message.
-* 1b. No patient with specified NRIC is present in the NAB.
+* 1b. No patient with specified NRIC/FIN is present in the NAB.
     * 1b1. NAB displays an empty list.
 
   Use case ends.
@@ -744,7 +744,7 @@ Given below are instructions to test the app manually.
 
 1. Adding a patient
 
-    1. Prerequisites: There exists no patient with NRIC `A1234567B` in the patient records.
+    1. Prerequisites: There exists no patient with NRIC/FIN `A1234567B` in the patient records.
 
     2. Test case (Valid parameters): `add n\John Smith ic\A1234567B dob\01/01/2000 ad\02/02/2020 w\a1 t\diarrhea
        r\likes to go to the park`<br>
@@ -756,7 +756,7 @@ Given below are instructions to test the app manually.
     4. Test case (Invalid Name): `add n\ ic\A1234567B dob\01/01/2000 ad\02/02/2020 w\a1 t\diarrhea r\likes to go to the park`<br>
        Expected: Similar to previous.
 
-    5. Test case (Invalid NRIC): `add n\John Smith ic\A12347B dob\01/01/2000 ad\02/02/2020 w\a1 t\diarrhea r\likes to go to the park`<br>
+    5. Test case (Invalid NRIC/FIN): `add n\John Smith ic\A12347B dob\01/01/2000 ad\02/02/2020 w\a1 t\diarrhea r\likes to go to the park`<br>
        Expected: Similar to previous.
 
     6. Test case (Invalid Date of Birth): `add n\John Smith ic\A1234567B dob\2000 ad\02/02/2020 w\a1 t\diarrhea r\likes to go to the park`<br>
@@ -805,7 +805,7 @@ Given below are instructions to test the app manually.
        Expected: Name of first patient is changed. Details of the edited patient is shown in the status bar.
 
     1. Test case: `edit 1 ic\W9876543M`<br>
-       Expected: NRIC of first patient is changed. Details of the edited patient is shown in the status bar.
+       Expected: NRIC/FIN of first patient is changed. Details of the edited patient is shown in the status bar.
 
     1. Test case: `edit 1 dob\03/03/2005`<br>
        Expected: Date of birth of first patient is changed. Details of the edited patient is shown in the status bar.
@@ -822,8 +822,8 @@ Given below are instructions to test the app manually.
     1. Test case (Invalid Name): `edit 1 n\ `<br>
        Expected: Patient name is not changed. Error details shown in the status bar.
 
-    2. Test case (Invalid NRIC): `edit 1 ic\a1231234b`<br>
-       Expected: Patient NRIC is not changed. Error details shown in the status bar.
+    2. Test case (Invalid NRIC/FIN): `edit 1 ic\a1231234b`<br>
+       Expected: Patient NRIC/FIN is not changed. Error details shown in the status bar.
 
     3. Test case (Invalid Date of Birth): `edit 1 dob\03-03-2004`<br>
        Expected: Patient Date of Birth is not changed. Error details shown in the status bar.
@@ -858,12 +858,12 @@ Given below are instructions to test the app manually.
     1. Test case: `find n\`<br>
        Expected: Similar to previous.
 
-2. Finding a patient by NRIC
+2. Finding a patient by NRIC/FIN
 
-    1. Prerequisites: There exist a patient with the NRIC `A1234567B` in the address book.
+    1. Prerequisites: There exist a patient with the NRIC/FIN `A1234567B` in the address book.
 
     1. Test case: `find ic\A1234567`<br>
-       Expected: The patient with the NRIC `A1234567B` is shown.
+       Expected: The patient with the NRIC/FIN `A1234567B` is shown.
 
     1. Test case: `find ic\a1234567b`<br>
        Expected: Similar to previous.
@@ -912,10 +912,10 @@ For more accurate error checking, we plan to perform more concrete validation of
     This is done by checking if the input date is a valid date as a whole (not just its parts), and throwing the error 
     that the date does not exist if it is invalid.
 
-**2. Standardise patient look-up/ accessing with the NRIC:**
-    Currently, the app does not allow users to `edit` or `delete` a patient's details by their NRIC number. As patients 
-    will predominantly (except foreigners) have a unique NRIC number, it would be more intuitive for nurses to be able 
-    to `edit` and `delete` with an NRIC parameter as well, switching to `INDEX` should the patient not have an NRIC.
+**2. Standardise patient look-up/ accessing with the NRIC/FIN:**
+    Currently, the app does not allow users to `edit` or `delete` a patient's details by their NRIC/FIN number. As patients 
+    will predominantly (except foreigners) have a unique NRIC/FIN number, it would be more intuitive for nurses to be able 
+    to `edit` and `delete` with an NRIC/FIN parameter as well, switching to `INDEX` should the patient not have an NRIC/FIN.
 
 **3. Editing of patient details:**
    Currently, the app does not directly edit patient contact details from the patient list. Some patient entries (or
@@ -927,27 +927,40 @@ We plan to allow nurses to view the corresponding patient's details while editin
     Subsequently, the nurse will be able to edit specific field(s) of the patient's details with a follow-up command, 
     while referencing the patient data. 
 
-Alternatively, we plan to allow nurses to edit the fields directly, after specifying the patient to be edited.
+This approach will reduce accidental deletion of critical details.
 
-Either approach will reduce accidental deletion of critical details.
+**4. Support for tourist patients:**
+    Currently, the app only allows for adding patients who are Singaporeans/Permanent Residents (via NRIC)
+    or foreigners with Long-Term immigration passes (via FIN). 
+    However, healthcare professionals also need to manage records for tourist patients who are receiving 
+    medical services during their visit to Singapore.
 
+We plan to enhance the app by introducing a new "Passport" field that can be used to store passport numbers of 
+tourist patients for identification purposes. This will ensure that the app can comprehensively manage patient 
+records for all individuals, including tourists, without limiting it to just those with NRICs or FINs.
+
+The implementation will involve modifying the existing add/edit commands to accept a `Passport` parameter in addition 
+to the current `NRIC` and `FIN` parameters. At least one of these three identification fields (NRIC, FIN, or Passport)
+must be provided when adding or editing a patient's record. This approach will seamlessly integrate tourist patient 
+support into the existing workflow and data model.
 
 --------------------------------------------------------------------------------------------------------------------
 
 ### **Appendix: Glossary**
 
-| Term                 | Further Explanation, Representation and Examples                                                                                                                          |
-|----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Term                 | Further Explanation, Representation and Examples                                                                                                                        |
+|----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **CLI**              | Command Line Interface. It is a text-based interface where you input commands to interact with the system. e.g., the command terminal. Perfect for fast typists like you! |
-| **Command**          | An instruction given to the application to perform a specific task. e.g., `add`, `list`, `delete`.                                                                        |
-| **Command Terminal** | A text-based interface where you can input commands to interact with the computer's operating system. e.g., `cmd` for Windows users.                                      |
-| **Data File**        | A file that stores the data of the application. e.g., `addressbook.json`.                                                                                                 |
-| **GUI**              | Graphical User Interface. It is the visual representation of the system you see. e.g., Windows Desktop, Chrome Browser.                                                   |
-| **JSON**             | JavaScript Object Notation. It is a data file type. For e.g., to store contacts saved in NAB.                                                                             |
-| **Mainstream OS**    | Windows, Linux, Unix, MacOS. The most commonly used operating systems.                                                                                                    |
-| **NRIC**             | Identity card number of the National Registration Identity Card. It is a unique identifier for individuals in Singapore. e.g., `S1234567A`.                               |
-| **Parameter**        | A value that is passed to a command to perform a specific task. e.g., `n\John Doe`, `ic\T1234567P`.                                                                       |
-| **Person/Patient**   | A contact entry in NAB, who is receiving medical services.                                                                                                                |
-| **Prefix**           | A string of characters that precedes a parameter to indicate the type of parameter. e.g., `n\John Doe`, `ic\T1234567P`.                                                   |
+| **Command**          | An instruction given to the application to perform a specific task. e.g., `add`, `list`, `delete`.                                                                      |
+| **Command Terminal** | A text-based interface where you can input commands to interact with the computer's operating system. e.g., `cmd` for Windows users.                                    |
+| **Data File**        | A file that stores the data of the application. e.g., `addressbook.json`.                                                                                               |
+| **FIN**              | Foreign Identification Number. It is a unique identifier for foreigners with Long-Term immigration passes in Singapore. e.g., `G1234567P`.                                                                                                                                                                        |
+| **GUI**              | Graphical User Interface. It is the visual representation of the system you see. e.g., Windows Desktop, Chrome Browser.                                                 |
+| **JSON**             | JavaScript Object Notation. It is a data file type. For e.g., to store contacts saved in NAB.                                                                           |
+| **Mainstream OS**    | Windows, Linux, Unix, MacOS. The most commonly used operating systems.                                                                                                  |
+| **NRIC**             | Identity card number of the National Registration Identity Card. It is a unique identifier for individuals in Singapore. e.g., `S1234567A`.                             |
+| **Parameter**        | A value that is passed to a command to perform a specific task. e.g., `n\John Doe`, `ic\T1234567P`.                                                                     |
+| **Person/Patient**   | A contact entry in NAB, who is receiving medical services.                                                                                                              |
+| **Prefix**           | A string of characters that precedes a parameter to indicate the type of parameter. e.g., `n\John Doe`, `ic\T1234567P`.                                                 |
 
 --------------------------------------------------------------------------------------------------------------------
