@@ -6,7 +6,8 @@ nav_order : 2
 # Nursing Address Book (NAB)
 Welcome to the user guide for NAB! NAB is a desktop application tailored for ward nurses in 
 Singapore, optimizing patient contact management via a Command Line Interface (CLI) while incorporating a Graphical User
-Interface (GUI) for ease of use.
+Interface (GUI) for ease of use. It complements the Electronic Medical Record (EMR) system, providing a quick way to 
+help nurse care and connect with patients faster.
 
 Designed for efficiency, NAB enables:
 
@@ -588,6 +589,7 @@ Back to [Table of Contents](#table-of-contents)
 | **Command**          | An instruction given to the application to perform a specific task. e.g., `add`, `list`, `delete`.                                                                        |
 | **Command Terminal** | A text-based interface where you can input commands to interact with the computer's operating system. e.g., `cmd` for Windows users.                                      |
 | **Data File**        | A file that stores the data of the application. e.g., `addressbook.json`.                                                                                                 |
+| **EMR**              | Electronic Medical Record. It is a database of extensive patient medical records.                                                                                         |
 | **FIN**              | Foreign Identification Number. It is a unique identifier for foreigners with Long-Term immigration passes in Singapore. e.g., `G1234567P`.                                |
 | **GUI**              | Graphical User Interface. It is the visual representation of the system you see. e.g., Windows Desktop, Chrome Browser.                                                   |
 | **JSON**             | JavaScript Object Notation. It is a data file type. For e.g., to store contacts saved in NAB.                                                                             |
