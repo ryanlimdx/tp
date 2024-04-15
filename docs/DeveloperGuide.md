@@ -897,7 +897,7 @@ Given below are instructions to test the app manually.
 
 --------------------------------------------------------------------------------------------------------------------
 
-### Appendix: Planned Enhancements
+### **Appendix: Planned Enhancements**
 Team size: 5
 
 **1.  Checking if a date is valid:**
@@ -933,6 +933,7 @@ Either approach will reduce accidental deletion of critical details.
 
 --------------------------------------------------------------------------------------------------------------------
 
+### **Appendix: Glossary**
 
 | Term                 | Further Explanation, Representation and Examples                                                                                                                          |
 |----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
