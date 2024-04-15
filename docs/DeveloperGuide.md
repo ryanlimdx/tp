@@ -702,7 +702,8 @@ specified otherwise)
 
 #### Non-Functional Requirements
 
-1.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands)
+1. Should work on any _mainstream OS_ as long as it has Java `11` installed. 
+1. A user with above average typing speed for regular English text (i.e. not code, not system admin commands)
     should be able to accomplish most of the tasks faster using commands than using the mouse.
 1.  The codebase should be well-structured and well-documented to facilitate future maintenance and enhancements.
 1.  The application should only support a single user.
