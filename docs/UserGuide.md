@@ -51,7 +51,7 @@ If you are a current user, feel free to jump into our [Table of Contents](#table
 --------------------------------------------------------------------------------------------------------------------
 ## Introduction
 
-This guide is designed to help you navigate Nursing Address Book (NAB) with ease. The guide is divided into several 
+This guide is designed to help you navigate NAB with ease. The guide is divided into several 
 sections, each focusing on a specific aspect of the application. As it is meant to give comprehensive details to master 
 the use of NAB, it is recommended to read through the guide sequentially. However, we acknowledge that it can be 
 overwhelming. Do not worry, as you can use the [Table of Contents](#table-of-contents) to navigate to the section you 
