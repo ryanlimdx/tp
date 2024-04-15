@@ -141,7 +141,7 @@ How the parsing works:
 **API** : [`Model.java`](https://github.com/AY2324S2-CS2103T-F10-1/tp/blob/master/src/main/java/seedu/address/model/Model.java)
 
 <div align="center">
-    <img src="images/ModelClassDiagram.png" width="450" alt="Model class diagram"/>
+    <img src="images/ModelClassDiagram.png" width="700" alt="Model class diagram"/>
     <br>
 </div>
 
@@ -449,9 +449,6 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 ### Find a patient by name or NRIC
 
-#### Introduction
-This section describes the implementation of the find by name or NRIC mechanism in NAB. 
-
 #### Implementation
 
 The find feature is facilitated by `FindCommand`, `FindCommandParser`, `NameContainsKeywordsPredicate` and
@@ -705,28 +702,16 @@ specified otherwise)
 
 #### Non-Functional Requirements
 
-1.  Should work on any _mainstream OS_ as long as it has Java `11` installed.
-2.  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
-3.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
-4.  The user interface should be intuitive and easy to navigate.
-5.  The codebase should be well-structured and well-documented to facilitate future maintenance and enhancements.
-6.  The application should only support a single user.
-7.  The product needs to be developed in a breadth-first incremental manner over the project duration.
-8.  The data should be stored locally and should be in a human editable text file.
-9.  The software should follow the Object-oriented paradigm primarily.
-10.  The software should work without requiring an installer.
-11.  The software should not depend on a specific remote server.
-12.  The GUI should work well for standard screen resolutions 1920x1080 and higher, and, for screen scales 100% and 125%.
-13.  The GUI should be usable (i.e., all functions can be used even if the user experience is not optimal) for,
-     resolutions 1280x720 and higher, and, for screen scales 150%.
-14.  The product should be available as a single JAR file of size 100MB or below.
-15.  The web documents saved should be a PDF file of size 15MB or below.
-16.  The final JAR/PDF files should not be bloated unnecessarily.
-17.  The DG and UG should be PDF-friendly, without any expandable panels, embedded videos, animated GIFs etc.
-18.  The use of third-party frameworks/libraries/services is allowed only if they, are free, open-source (this
-     doesn't apply to services), and have permissive license terms; do not require any installation by the user.
-19.  The product should process a user input command within 2 second.
-20.  The application should comply with Singapore's Personal Data Protection Act (PDPA) by implementing appropriate measures to protect the personal data of patients, such as securing data storage, restricting access to authorized personnel only, and ensuring proper disposal of data when no longer needed.
+1. Should work on any _mainstream OS_ as long as it has Java `11` installed. 
+1. A user with above average typing speed for regular English text (i.e. not code, not system admin commands)
+    should be able to accomplish most of the tasks faster using commands than using the mouse.
+1.  The codebase should be well-structured and well-documented to facilitate future maintenance and enhancements.
+1.  The application should only support a single user.
+1.  The data should be stored locally and should be in a human editable text file.
+1.  The software should work without requiring an installer.
+1.  The software should not depend on any specific remote server.
+1.  The product should be available as a single JAR file of size 100MB or below.
+1.  The product should process a user input command within 2 seconds.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -913,7 +898,7 @@ Given below are instructions to test the app manually.
 
 --------------------------------------------------------------------------------------------------------------------
 
-### Appendix: Planned Enhancements
+### **Appendix: Planned Enhancements**
 Team size: 5
 
 **1.  Checking if a date is valid:**
@@ -949,7 +934,7 @@ Either approach will reduce accidental deletion of critical details.
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Glossary
+### **Appendix: Glossary**
 
 | Term                 | Further Explanation, Representation and Examples                                                                                                                          |
 |----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
