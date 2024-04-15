@@ -2,8 +2,10 @@ package seedu.address.model.util;
 
 import java.util.Arrays;
 import java.util.Set;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
+import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.AddressBook;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.person.AdmissionDate;
@@ -20,6 +22,8 @@ import seedu.address.model.tag.Tag;
  * Contains utility methods for populating {@code AddressBook} with sample data.
  */
 public class SampleDataUtil {
+
+    private static final Logger logger = LogsCenter.getLogger(SampleDataUtil.class);
 
     /**
      * Returns an array of sample persons.
@@ -49,10 +53,22 @@ public class SampleDataUtil {
      */
     public static ReadOnlyAddressBook getSampleAddressBook() {
         AddressBook sampleAb = new AddressBook();
-        for (Person samplePerson : getSamplePersons()) {
-            sampleAb.addPerson(samplePerson);
+        try {
+            for (Person samplePerson : getSamplePersons()) {
+                sampleAb.addPerson(samplePerson);
+            }
+            return sampleAb;
+        } catch (NullPointerException e) {
+            logger.warning("Sample data file could not be loaded. "
+                    + e.getMessage() + " value detected. "
+                    + "Will be starting with an empty AddressBook.");
+            return new AddressBook();
+        } catch (IllegalArgumentException e) {
+            logger.warning("Sample data file could not be loaded. "
+                    + e.getMessage() + ". "
+                    + "Will be starting with an empty AddressBook.");
+            return new AddressBook();
         }
-        return sampleAb;
     }
 
     /**

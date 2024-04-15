@@ -4,7 +4,7 @@ title: User Guide
 nav_order : 2
 ---
 # Nursing Address Book (NAB)
-Welcome to the user guide for Nursing Address Book (NAB)! NAB is a desktop application tailored for ward nurses in 
+Welcome to the user guide for NAB! NAB is a desktop application tailored for ward nurses in 
 Singapore, optimizing patient contact management via a Command Line Interface (CLI) while incorporating a Graphical User
 Interface (GUI) for ease of use.
 
@@ -79,11 +79,11 @@ We hope you find this guide helpful in your journey to mastering NAB.
 ### Icons used in this guide
 Here are the icons used in this guide and their meanings:
 
-| Icon                          | Meaning                                                                           |
-|-------------------------------|-----------------------------------------------------------------------------------|
-| :exclamation:**Caution**      | Indicates a caution or warning. Typically, these are common errors made by users. |
-| :information_source: **Note** | Provides additional information.                                                  |
-| :bulb:**Tip**                 | Provides additional tips for you to master the application.                       |
+| Icon                                | Meaning                                                                           |
+|-------------------------------------|-----------------------------------------------------------------------------------|
+| <div>:exclamation:**Caution**</div> | Indicates a caution or warning. Typically, these are common errors made by users. |
+| :information_source: **Note**       | Provides additional information.                                                  |
+| :bulb:**Tip**                       | Provides additional tips for you to master the application.                       |
 
 
 
@@ -114,7 +114,8 @@ Back to [Table of Contents](#table-of-contents)
    <br>
    <br>
    <div markdown="block" class="alert alert-info"> :information_source:
-   _Ensure you have the necessary permissions to execute commands. For Windows Users, running the command prompt as an administrator may be
+   **Ensure you have the necessary permissions to execute commands.** <br> 
+   _For Windows Users, running the command prompt as an administrator may be
    required. If you encounter permission issues on Mac/Linux, you might need to use `chmod +x nab.jar` to make the file 
    executable._
    </div>
@@ -197,16 +198,16 @@ as space characters surrounding line-breaks may be omitted when copied over to t
 
 ### Parameters for commands
 
-| Parameter          | Description                                                                    | Valid Input                                                                                                                                                                                                                                                                                                                                               |
-|--------------------|--------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **INDEX**          | The position of a patient in the displayed list.                               | Positive integers (i.e. from 1 onwards) e.g., `1`, `2`, `3`. Should not be larger than the length of displayed list.                                                                                                                                                                                                                                      |                                                                                                                                         
-| **NAME**           | The name of a patient.                                                         | Common names are generally accepted. Names should be alphanumeric, with the inclusion of the following special characters: whitespaces, `'`, `-`, `,` and `/`. e.g., `John Doe`, `Nagaratnam s/o Suppiah`. <br><br> **Name should be limited to 40 characters. Longer names may not display fully in the GUI.**                                           |                                                                                                                                                                                                         
-| **IC_NUMBER**      | The IC number of the patient.                                                  | A unique identification number in the format of a capital letter, followed by a 7-digit number, and ending with a capital letter. e.g., `T1234567Z`. Note that while the platform performs some level of IC validation, it is up to the user to ensure that the IC is accurate.                                                                           |
-| **DATE_OF_BIRTH**  | The date of birth of a patient.                                                | The date of birth of the patient must be in the format dd/MM/yyyy. e.g., `21/03/2000`. Note that while the platform performs some level of date validation, it is up to the user to ensure that the date is accurate (not in the future, or impossible dates such as 30th February etc).                                                                  |              
-| **ADMISSION_DATE** | The date a patient was admitted to the ward.                                   | The admission date of the patient must be in the format of dd/MM/yyyy. e.g., `21/03/2022`. Note that while the platform performs some level of date validation, it is up to the user to ensure that the date is accurate (not in the future, impossible dates such as 30th February etc).                                                                 |
-| **WARD**           | The ward where a patient is located.                                           | An alphanumeric string, e.g., `A1`. Note that special characters are not allowed, and you can work around this issue by utilising [camelCase](#glossary) or [PascalCase](#glossary) e.g., `FallRisk`.                                                                                                                                                     |                                                                                               
-| **REMARK**         | Optional remark about a patient.                                               | Any string input, e.g., `Patient is an amputee`.                                                                                                                                                                                                                                                                                                          |                                                                                              
-| **TAG**            | Optional tag to categorize a patient by health condition or other descriptors. | An alphanumeric string for each tag, e.g., `Diabetes`. Note that special characters are not allowed, and you can work around this issue by omitting special characters, utilising [camelCase](#glossary) or [PascalCase](#glossary) e.g., `FallRisk`. <br><br> **Tags should be limited to 15 characters. Longer tags may not display fully in the GUI.** |                                                                                             
+| Parameter          | Description                                                                    | Valid Input                                                                                                                                                                                                                                                                                                                                                                |
+|--------------------|--------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **INDEX**          | The position of a patient in the displayed list.                               | Positive integers (i.e. from 1 onwards) e.g., `1`, `2`, `3`. Should not be larger than the length of displayed list.                                                                                                                                                                                                                                                       |                                                                                                                                         
+| **NAME**           | The name of a patient.                                                         | Common names are generally accepted. Names should be alphanumeric, with the inclusion of the following special characters: whitespaces, `'`, `-`, `,` and `/`. e.g., `John Doe`, `Nagaratnam s/o Suppiah`. <br><br> **Name should be limited to 40 characters. Longer names may not display fully in the GUI.**                                                            |                                                                                                                                                                                                         
+| **IC_NUMBER**      | The IC number of the patient.                                                  | A unique identification number in the format of a capital letter, followed by a 7-digit number, and ending with a capital letter. e.g., `T1234567Z`. Note that while the platform performs some level of IC validation, it is up to the user to ensure that the IC is accurate.                                                                                            |
+| **DATE_OF_BIRTH**  | The date of birth of a patient.                                                | The date of birth of the patient must be in the format dd/MM/yyyy. e.g., `21/03/2000`. Note that while the platform performs some level of date validation, it is up to the user to ensure that the date is accurate (not in the future, or impossible dates such as 30th February etc).                                                                                   |              
+| **ADMISSION_DATE** | The date a patient was admitted to the ward.                                   | The admission date of the patient must be in the format of dd/MM/yyyy. e.g., `21/03/2022`. Note that while the platform performs some level of date validation, it is up to the user to ensure that the date is accurate (not in the future, impossible dates such as 30th February etc).                                                                                  |
+| **WARD**           | The ward where a patient is located.                                           | An alphanumeric string, e.g., `A1`. Note that special characters are not allowed, and you can work around this issue by utilising [camelCase](#glossary) e.g., `wardA` or [PascalCase](#glossary) e.g., `WardA`.                                                                                                                                                           |                                                                                               
+| **REMARK**         | Optional remark about a patient.                                               | Any string input, e.g., `Patient is an amputee`.                                                                                                                                                                                                                                                                                                                           |                                                                                              
+| **TAG**            | Optional tag to categorize a patient by health condition or other descriptors. | An alphanumeric string for each tag, e.g., `Diabetes`. Note that special characters are not allowed, and you can work around this issue by omitting special characters, utilising [camelCase](#glossary) e.g., `fallRisk` or [PascalCase](#glossary) e.g., `FallRisk`. <br><br> **Tags should be limited to 15 characters. Longer tags may not display fully in the GUI.** |                                                                                             
 
 <div markdown="block" class="alert alert-info">
 :information_source: <b>Note:</b>
@@ -528,9 +529,12 @@ Back to [Table of Contents](#table-of-contents)
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains 
 the data of your previous NAB home folder.
 
-**Q**: Is your platform available in other languages such as Chinese?<br>
+**Q**: Is your platform available in other languages?<br>
 **A**: NAB is currently available only in English, as it is the main language of Singapore. Support for additional 
-languages will be introduced in future releases.
+languages will be introduced in future releases. Should patients have names in other languages, it is recommended to use
+the translation provided on their NRIC. For extenuating circumstances such as foreigners, it is recommended to use an 
+approximation of their name in English. For e.g., `李小明` can be approximated as `Lee Xiaoming`, `Hallé` can be 
+approximated as `Halle`.
 
 **Q**: What is the difference between `list` and `find`?<br>
 **A**: The `list` command allows you to retrieve multiple contacts, for which they are _all useful_. In contrast, the 
@@ -565,7 +569,7 @@ restarting the application or your system to clear any potential memory leaks or
 2. **Error for empty tags and/or ward prefix(es) for `list`:**  The `list` command will not display patients with tags 
 and/or ward prefix(es) that **do not contain** any associated content. This feature was intentionally designed to filter 
 relevant patients with the appropriate tags and/or ward. As there is no use case (patients should usually have a ward 
-and/or tag associated with them) for being able to look up empty tags and/or wards, they are not displayed.
+and/or tag associated with them) for being able to look up empty tags and/or wards, it is not implemented.
 
 Back to [Table of Contents](#table-of-contents)
 
@@ -585,6 +589,7 @@ Back to [Table of Contents](#table-of-contents)
 | **GUI**              | Graphical User Interface. It is the visual representation of the system you see. e.g., Windows Desktop, Chrome Browser.                                                   |
 | **Parameter**        | A value that is passed to a command to perform a specific task. e.g., `n\John Doe`, `ic\T1234567P`.                                                                       |
 | **PascalCase**       | A naming convention where the first letter of each word is capitalized. e.g., `FallRisk`, `HearingImpaired`.                                                              |
+| **Person/Patient**   | A contact entry in NAB                                                                                                                                                    |
 | **Prefix**           | A string of characters that precedes a parameter to indicate the type of parameter. e.g., `n\John Doe`, `ic\T1234567P`.                                                   |
 
 Back to [Table of Contents](#table-of-contents)
