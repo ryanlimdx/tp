@@ -942,9 +942,7 @@ We plan to allow nurses to view the corresponding patient's details while editin
     Subsequently, the nurse will be able to edit specific field(s) of the patient's details with a follow-up command, 
     while referencing the patient data. 
 
-Alternatively, we plan to allow nurses to edit the fields directly, after specifying the patient to be edited.
-
-Either approach will reduce accidental deletion of critical details.
+This approach will reduce accidental deletion of critical details.
 
 **4. Support for tourist patients:**
     Currently, the app only allows for adding patients who are Singaporeans/Permanent Residents (via NRIC)
