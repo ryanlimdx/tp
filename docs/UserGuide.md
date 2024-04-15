@@ -201,7 +201,7 @@ as space characters surrounding line-breaks may be omitted when copied over to t
 |--------------------|--------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **INDEX**          | The position of a patient in the displayed list.                               | Positive integers (i.e. from 1 onwards) e.g., `1`, `2`, `3`. Should not be larger than the length of displayed list.                                                                                                                                                                                                                                                       |                                                                                                                                         
 | **NAME**           | The name of a patient.                                                         | Common names are generally accepted. Names should be alphanumeric, with the inclusion of the following special characters: whitespaces, `'`, `-`, `,` and `/`. e.g., `John Doe`, `Nagaratnam s/o Suppiah`. <br><br> **Name should be limited to 40 characters. Longer names may not display fully in the GUI.**                                                            |                                                                                                                                                                                                         
-| **IC_NUMBER**      | The IC number of the patient.                                                  | A unique identification number in the format of a capital letter, followed by a 7-digit number, and ending with a capital letter. e.g., `T1234567Z`. Note that while the platform performs some level of IC validation, it is up to the user to ensure that the IC is accurate.                                                                                            |
+| **IC_NUMBER**      | The IC number (NRIC/ FIN) of the patient.                                      | A unique identification number in the format of a capital letter, followed by a 7-digit number, and ending with a capital letter. e.g., `T1234567Z`. Note that while the platform performs some level of IC validation, it is up to the user to ensure that the IC is accurate.                                                                                            |
 | **DATE_OF_BIRTH**  | The date of birth of a patient.                                                | The date of birth of the patient must be in the format dd/MM/yyyy. e.g., `21/03/2000`. Note that while the platform performs some level of date validation, it is up to the user to ensure that the date is accurate (not in the future, or impossible dates such as 30th February etc).                                                                                   |              
 | **ADMISSION_DATE** | The date a patient was admitted to the ward.                                   | The admission date of the patient must be in the format of dd/MM/yyyy. e.g., `21/03/2022`. Note that while the platform performs some level of date validation, it is up to the user to ensure that the date is accurate (not in the future, impossible dates such as 30th February etc).                                                                                  |
 | **WARD**           | The ward where a patient is located.                                           | An alphanumeric string, e.g., `A1`. Note that special characters are not allowed, and you can work around this issue by utilising [camelCase](#glossary) e.g., `wardA` or [PascalCase](#glossary) e.g., `WardA`.                                                                                                                                                           |                                                                                               
@@ -243,7 +243,7 @@ Additional details:
 * `REMARK` : Remarks have no length limit, and each patient can only have **ONE** remark field.
 
 <div markdown="block" class="alert alert-info"> :information_source: <b>Note:</b>
-Each patient in NAB must have a unique  <code>IC_NUMBER</code>. Attempting to add a patient with an 
+Each patient in NAB must have a unique <code>IC_NUMBER</code>. Attempting to add a patient with an 
 <code>IC_NUMBER</code> that already exists will result in an error.
 </div>
 
@@ -344,8 +344,8 @@ patient shown in the displayed list.
 
     <div markdown="span" class="alert alert-warning"> :exclamation: <b>Caution:</b>
     When editing tags and/or remarks, the existing tags and/or remarks of the patient will 
-    be removed i.e adding of tags and/or remarks via `edit` is not cumulative. Be sure to copy the previous tags and remarks 
-    if you wish to retain them.
+    be removed i.e adding of tags and/or remarks via `edit` is not cumulative. Be sure to copy the previous tags and 
+    remarks if you wish to retain them.
     </div>
 
 * You can remove all the patient’s tags by typing `t\ ` without specifying any tags after it.
@@ -361,7 +361,8 @@ Example command:
 `edit 1 ic\T0123456P t\ r\` edits the `IC_NUMBER`, `TAG` and `REMARK` of the first patient to be `T0123456P` for 
 `IC_NUMBER` and empty for both `TAG` and `REMARK`.
 
-Assuming John Doe is at index 1 and previously had IC Number `T1234567P`, the tags `[FallRisk]` and `[HearingImpaired]`, and remark `Requires assistance feeding.`, the following shows the change in contact details:
+Assuming John Doe is at index 1 and previously had IC Number `T1234567P`, the tags `[FallRisk]` and `[HearingImpaired]`,
+and remark `Requires assistance feeding.`, the following shows the change in contact details:
 
 **Before**:
 ```
@@ -531,8 +532,8 @@ the data of your previous NAB home folder.
 **Q**: Is your platform available in other languages?<br>
 **A**: NAB is currently available only in English, as it is the main language of Singapore. Support for additional 
 languages will be introduced in future releases. Should patients have names in other languages, it is recommended to use
-the translation provided on their NRIC. For extenuating circumstances such as foreigners, it is recommended to use an 
-approximation of their name in English. For e.g., `李小明` can be approximated as `Lee Xiaoming`, `Hallé` can be 
+the translation provided on their NRIC/ FIN. For extenuating circumstances such as foreigners, it is recommended to use 
+an approximation of their name in English. For e.g., `李小明` can be approximated as `Lee Xiaoming`, `Hallé` can be 
 approximated as `Halle`.
 
 **Q**: What is the difference between `list` and `find`?<br>
@@ -585,10 +586,14 @@ Back to [Table of Contents](#table-of-contents)
 | **Command**          | An instruction given to the application to perform a specific task. e.g., `add`, `list`, `delete`.                                                                        |
 | **Command Terminal** | A text-based interface where you can input commands to interact with the computer's operating system. e.g., `cmd` for Windows users.                                      |
 | **Data File**        | A file that stores the data of the application. e.g., `addressbook.json`.                                                                                                 |
+| **FIN**              | Foreign Identification Number. It is a unique identifier for foreigners with Long-Term immigration passes in Singapore. e.g., `G1234567P`.                                |
 | **GUI**              | Graphical User Interface. It is the visual representation of the system you see. e.g., Windows Desktop, Chrome Browser.                                                   |
+| **JSON**             | JavaScript Object Notation. It is a data file type. For e.g., to store contacts saved in NAB.                                                                             |
+| **Mainstream OS**    | Windows, Linux, Unix, MacOS. The most commonly used operating systems.                                                                                                    |
+| **NRIC**             | National Registration Identity Card. The identity card number is a unique identifier for Singapore Citizens and Permanent Residents. e.g., `S1234567A`.                   |
 | **Parameter**        | A value that is passed to a command to perform a specific task. e.g., `n\John Doe`, `ic\T1234567P`.                                                                       |
 | **PascalCase**       | A naming convention where the first letter of each word is capitalized. e.g., `FallRisk`, `HearingImpaired`.                                                              |
-| **Person/Patient**   | A contact entry in NAB                                                                                                                                                    |
+| **Person/Patient**   | A contact entry in NAB, who is receiving medical services.                                                                                                                |
 | **Prefix**           | A string of characters that precedes a parameter to indicate the type of parameter. e.g., `n\John Doe`, `ic\T1234567P`.                                                   |
 
 Back to [Table of Contents](#table-of-contents)

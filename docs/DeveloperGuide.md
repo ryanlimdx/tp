@@ -425,7 +425,7 @@ The following activity diagram summarizes what happens when a user executes a ne
     <img src="images/ListCommandActivityDiagram2.png" width="500" alt="List activity diagram"/>
 </div>
 
-#### Design considerations:
+#### Design considerations
 
 **Aspect: Command to filter:**
 
@@ -712,7 +712,6 @@ specified otherwise)
 1.  The product should be available as a single JAR file of size 100MB or below.
 1.  The product should process a user input command within 2 seconds.
 
-
 --------------------------------------------------------------------------------------------------------------------
 
 ### **Appendix: Instructions for manual testing**
@@ -732,6 +731,7 @@ Given below are instructions to test the app manually.
     1. Download the jar file and copy into an empty folder
     2. Double-click the jar file <br>
        Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
+
 
 2. Saving window preferences
 
@@ -904,17 +904,17 @@ Team size: 5
     Currently, the app performs some form of date validation in terms of the syntax of the date. For the day, month and
     year, the range is also limited to within reasonable calendar days (i.e. up till 31), months (i.e. up till 12) and
     years (i.e. up till 9999). The entire date itself must also be up till the current date. However, the app does not
-    check if the date is valid. For example, a nurse could key in 30/02/2022 (reasonable range for each date segment and
-    before current date) as the date of birth of a patient.
+    check if the date is valid. For example, a nurse could key in `30/02/2022` (reasonable range for each date segment 
+    and before current date) as the date of birth of a patient. 
 
 For more accurate error checking, we plan to perform more concrete validation of the dates to check if the date exists.
-    This is done by checking if the input date is a valid date as a whole (not just its parts), and throwing the error that
-    the date does not exist if it is invalid.
+    This is done by checking if the input date is a valid date as a whole (not just its parts), and throwing the error 
+    that the date does not exist if it is invalid.
 
-**2. Standardise patient look-up/ accessing:**
-   Currently, the app does not allow users to delete or edit a patient's details by their Singapore Identity Card (NRIC)
-   number. As patients will predominantly (except foreigners) have an NRIC number, it would be more intuitive for nurses to
-   be able to edit and delete by NRIC as well.
+**2. Standardise patient look-up/ accessing with the NRIC:**
+    Currently, the app does not allow users to `edit` or `delete` a patient's details by their NRIC number. As patients 
+    will predominantly (except foreigners) have a unique NRIC number, it would be more intuitive for nurses to be able 
+    to `edit` and `delete` with an NRIC parameter as well, switching to `INDEX` should the patient not have an NRIC.
 
 **3. Editing of patient details:**
    Currently, the app does not directly edit patient contact details from the patient list. Some patient entries (or
@@ -922,18 +922,30 @@ For more accurate error checking, we plan to perform more concrete validation of
    may result in key information being lost. 
 
 We plan to allow nurses to view the corresponding patient's details while editing. This can be done by having the nurse
-    first input only edit INDEX (as per the original command) and then the app will show the patient's details. The nurse
-    will then be able to edit the specific field(s) of the patient's details with a follow-up command. This will prevent
-    accidental deletion of critical details.
+    first input only `edit INDEX` (as per the original command). The app will then show the patient's details. 
+    Subsequently, the nurse will be able to edit specific field(s) of the patient's details with a follow-up command, 
+    while referencing the patient data. 
+
+Alternatively, we plan to allow nurses to edit the fields directly, after specifying the patient to be edited.
+
+Either approach will reduce accidental deletion of critical details.
 
 
 --------------------------------------------------------------------------------------------------------------------
-## Appendix: Glossary
 
-* **CLI**: Command Line Interface
-* **GUI**: Graphical User Interface
-* **JSON**: JavaScript Object Notation
-* **Mainstream OS**: Windows, Linux, Unix, MacOS
-* **NRIC**: Identity card number of the National Registration Identity Card, used as a unique identifier for
-  patients in Nursing Address Book
-* **Patient**: A person receiving medical services at a hospital
+
+| Term                 | Further Explanation, Representation and Examples                                                                                                                          |
+|----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **CLI**              | Command Line Interface. It is a text-based interface where you input commands to interact with the system. e.g., the command terminal. Perfect for fast typists like you! |
+| **Command**          | An instruction given to the application to perform a specific task. e.g., `add`, `list`, `delete`.                                                                        |
+| **Command Terminal** | A text-based interface where you can input commands to interact with the computer's operating system. e.g., `cmd` for Windows users.                                      |
+| **Data File**        | A file that stores the data of the application. e.g., `addressbook.json`.                                                                                                 |
+| **GUI**              | Graphical User Interface. It is the visual representation of the system you see. e.g., Windows Desktop, Chrome Browser.                                                   |
+| **JSON**             | JavaScript Object Notation. It is a data file type. For e.g., to store contacts saved in NAB.                                                                             |
+| **Mainstream OS**    | Windows, Linux, Unix, MacOS. The most commonly used operating systems.                                                                                                    |
+| **NRIC**             | Identity card number of the National Registration Identity Card. It is a unique identifier for individuals in Singapore. e.g., `S1234567A`.                               |
+| **Parameter**        | A value that is passed to a command to perform a specific task. e.g., `n\John Doe`, `ic\T1234567P`.                                                                       |
+| **Person/Patient**   | A contact entry in NAB, who is receiving medical services.                                                                                                                |
+| **Prefix**           | A string of characters that precedes a parameter to indicate the type of parameter. e.g., `n\John Doe`, `ic\T1234567P`.                                                   |
+
+--------------------------------------------------------------------------------------------------------------------
